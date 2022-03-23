@@ -5,17 +5,18 @@ import { Card, Searchbar } from 'react-native-paper';
 import styled from "styled-components/native"
 
 const RestaurantCard = styled(Card)`
-    background-color:white
+    background-color:${props => props.theme.colors.bg.primary}
 `;
 
 const RestaurantCardCover = styled(Card.Cover)`
-    padding: 20px;
-    background-color:white;
+    padding: ${props => props.theme.space[3]};
+    background-color:${props => props.theme.colors.bg.primary};
 `;
 
-const Title = styled.Text`
+const Title = styled(Text)`
+    font-family: ${props => props.theme.fonts.body};
     padding:16px;
-    color: blue;
+    color: ${props => props.theme.colors.ui.primary};
 `
 
 export const RestaurantInfoCard = ({restaurant = {}}) => {
