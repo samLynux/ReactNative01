@@ -10,6 +10,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeArea } from "./src/utils/safe-area.component";
 import {Ionicons} from "@expo/vector-icons"
+import { restaurantRequest } from "./src/services/restaurant/restaurant.service";
 
 export default function App() {
 
@@ -19,6 +20,7 @@ export default function App() {
     Settings: "md-settings",
   }
 
+  
 
 
   const createScreenOptions = ({route}) => {
