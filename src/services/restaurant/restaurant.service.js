@@ -8,11 +8,10 @@ export const restaurantRequest = (location = "37.7749295,-122.4194155") => {
         if(!mock) {
             reject("not found")
         }
-        console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         resolve(mock);
     })
 }
-const restaurantTransform = ({results = []}) => {
+export const restaurantTransform = ({results = []}) => {
     const mappedResults = results.map((restaurant) => {
         return {
             ...restaurant,
@@ -26,7 +25,7 @@ const restaurantTransform = ({results = []}) => {
 restaurantRequest()
     .then(restaurantTransform)
     .then((transformedResponse) => {
-        console.log(transformedResponse);
+        //console.log(transformedResponse);
 }).catch((err) => {
     console.log("error");
 });
