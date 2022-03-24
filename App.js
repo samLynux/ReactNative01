@@ -9,10 +9,28 @@ import {useFonts as useLato, Lato_400Regular} from "@expo-google-fonts/lato"
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeArea } from "./src/utils/safe-area.component";
-
+import {Ionicons} from "@expo/vector-icons"
 
 export default function App() {
 
+  const TAB_ICONS = {
+    Restaurants: "md-restaurant",
+    Map: "md-map",
+    Settings: "md-settings",
+  }
+
+
+
+  const createScreenOptions = ({route}) => {
+    const iconName = TAB_ICONS[route.name]
+    return {
+      tabBarIcon: ({size, color}) =>(
+        <Ionicons name={iconName} size={size} color={color} />
+      )
+    }
+  }
+ 
+ 
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular
   })
@@ -37,11 +55,18 @@ export default function App() {
     <Text>Map</Text>
   );
 
+  
   return (
     <>
     <ThemeProvider theme={theme}>
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator
+          screenOptions={createScreenOptions}
+          tabBarOptions={{
+            activeTintColor: "tomato",
+            inactiveTintColor: "gray",
+          }}
+        >
           <Tab.Screen name='Restaurants' component={RestaurantScreen}/>
           <Tab.Screen name='Map' component={Map}/>
           <Tab.Screen name='Settings' component={Settings}/>
