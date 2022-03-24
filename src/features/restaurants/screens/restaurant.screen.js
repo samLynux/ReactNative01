@@ -5,12 +5,10 @@ import { Searchbar } from 'react-native-paper';
 
 import styled from "styled-components/native"
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { SafeArea } from "../../../utils/safe-area.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
-const SafeArea = styled(SafeAreaView)`
-    flex:1;
-    ${StatusBar.currentHeight && `marginTop: ${StatusBar.currentHeight}px`};
-`;
+
 
 const SearchContainer = styled(Searchbar)`
     padding: ${props => props.theme.space[3]};
