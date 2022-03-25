@@ -8,12 +8,11 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { RestaurantContext } from "../../../services/restaurant/restaurant.context";
 import { SafeArea } from "../../../utils/safe-area.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+import { Search } from "../components/search.component";
 
 
 
-const SearchContainer = styled(Searchbar)`
-    padding: ${props => props.theme.space[3]};
-`;
+
 
 const RestaurantList = styled(FlatList).attrs({
     contentContainerStyle:{
@@ -49,9 +48,7 @@ export const RestaurantScreen = () => {
                         />
                     </LoadingContainer>
                 )}
-                <View >
-                    <SearchContainer/> 
-                </View>
+                <Search/>
                 <RestaurantList
                     data={restaurants}
                     renderItem={({item}) => {
