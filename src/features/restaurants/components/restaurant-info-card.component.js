@@ -8,6 +8,7 @@ import open from "../../../../assets/open"
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Address, Icon, Info, Open, Rating, RestaurantCard, RestaurantCardCover, Section, SectionEnd } from "./restaurant-info-card.styles";
+import { Favorite } from "../../../components/favorites/favorite.components";
 
 
 
@@ -32,6 +33,7 @@ export const RestaurantInfoCard = ({restaurant = {}}) => {
         
         <>
         <RestaurantCard elevation={5}>
+            <Favorite/>
             <RestaurantCardCover key={name} source={{uri: photos[0]}}/>
             <Info>
                 <Text variant="label">{name}</Text>
