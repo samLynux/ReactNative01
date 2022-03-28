@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationContainer } from '@react-navigation/native';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import {Ionicons} from "@expo/vector-icons"
@@ -53,7 +53,6 @@ const Tab = createBottomTabNavigator();
 
 export const AppNavigator = () => {
     return (
-        <NavigationContainer>
             <Tab.Navigator
               screenOptions={createScreenOptions}
               >
@@ -61,6 +60,5 @@ export const AppNavigator = () => {
               <Tab.Screen name='Map' component={MapScreen}/>
               <Tab.Screen name='Settings' component={Settings}/>
             </Tab.Navigator>
-          </NavigationContainer>
     )
 }
