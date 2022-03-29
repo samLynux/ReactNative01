@@ -1,14 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 
-import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+
 import { ThemeProvider } from 'styled-components';
 import {theme} from "./src/Infrastructure/theme"
 import {useFonts as useOswald, Oswald_400Regular} from "@expo-google-fonts/oswald"
 import {useFonts as useLato, Lato_400Regular} from "@expo-google-fonts/lato"
-import { RestaurantContextProvider } from "./src/services/restaurant/restaurant.context";
-import { LocationContextProvider } from "./src/services/location/location.context";
+
 import { Navigation } from "./src/Infrastructure/navigation/index";
-import { FavoritesContextProvider } from "./src/services/favorites/favorites.context";
+
 import firebase from 'firebase/compat';
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
@@ -61,14 +60,7 @@ export default function App() {
     <>
     <ThemeProvider theme={theme}>
       <AuthenticationContextProvider>
-        <FavoritesContextProvider>
-          <LocationContextProvider>
-            <RestaurantContextProvider>
                 <Navigation/>
-            </RestaurantContextProvider>
-          </LocationContextProvider>
-          <ExpoStatusBar style='auto'/>
-        </FavoritesContextProvider>
       </AuthenticationContextProvider>
     </ThemeProvider>
     </>

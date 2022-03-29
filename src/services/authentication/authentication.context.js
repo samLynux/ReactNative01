@@ -11,6 +11,17 @@ export const AuthenticationContextProvider = ({children}) => {
     const [error, setError] = useState(null)
 
     // console.log(user);
+
+    firebase.auth().onAuthStateChanged((usr) => {
+        if(usr){
+            setUser(usr);
+            // setIsLoading(false);
+        }else{
+            // setIsLoading(false);
+        }
+    })
+
+
     const onLogin = (email, password) => {
         setIsLoading(true)
         
@@ -25,6 +36,7 @@ export const AuthenticationContextProvider = ({children}) => {
     }
 
     const onRegister = (email, password, repeatedPassword) => {
+        setIsLoading(true)
         if(password !== repeatedPassword){
             setError("error, password not match")
             return;
@@ -40,6 +52,12 @@ export const AuthenticationContextProvider = ({children}) => {
     }
 
 
+    const onLogout = () =>{
+        setUser(null);
+        firebase.auth().signOut();
+    }
+
+
     return (
         <AuthenticationContext.Provider
             value={{
@@ -48,7 +66,8 @@ export const AuthenticationContextProvider = ({children}) => {
                 isLoading,
                 error,
                 onLogin,
-                onRegister
+                onRegister,
+                onLogout
             }}>
             {children}
         </AuthenticationContext.Provider>

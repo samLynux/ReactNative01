@@ -1,6 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React, {useState, useContext} from "react";
 import { View, Text } from "react-native";
+import { ActivityIndicator, Colors } from "react-native-paper";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 import { AccountBackground, AccountContainer, AccountCover, AuthButton, AuthInput, ErrorContainer, Title } from "../components/account.styles";
@@ -10,7 +11,7 @@ export const RegisterScreen = ({navigation}) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordRepeat, setPasswordRepeat] = useState("")
-    const {onRegister, error} = useContext(AuthenticationContext)
+    const {onRegister,isLoading, error} = useContext(AuthenticationContext)
 
 
     return (
@@ -50,13 +51,16 @@ export const RegisterScreen = ({navigation}) => {
                     <Text variant="error">{error}</Text>
                 </ErrorContainer>)}
                 <Spacer size="large">
-                <AuthButton
+                {!isLoading ?
+                 (<AuthButton
                     icon="email"
                     onPress={() => onRegister(email,password, passwordRepeat)}
                     mode="contained"
                     >
                     Register
-                </AuthButton>
+                </AuthButton>)
+                : <ActivityIndicator animating={true} color={Colors.blue300}/>
+                }
                 </Spacer>
                 
             </AccountContainer>
