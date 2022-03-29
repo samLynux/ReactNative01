@@ -1,9 +1,10 @@
 import React, {useContext, useState} from "react";
 
-import {   FlatList,  View, TouchableOpacity } from 'react-native';
+import {    View, TouchableOpacity } from 'react-native';
 import { ActivityIndicator, Colors, Searchbar } from 'react-native-paper';
 
 import styled from "styled-components/native"
+import { FadeInView } from "../../../components/animations/fade.animations";
 import { FavoritesBar } from "../../../components/favorites/favorites-bar.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { FavoritesContext } from "../../../services/favorites/favorites.context";
@@ -39,6 +40,7 @@ export const RestaurantScreen = ({navigation}) => {
     return (
         <>
             <SafeArea >
+                
                 {isLoading &&(
                     <LoadingContainer>
                         <Loading
@@ -56,6 +58,7 @@ export const RestaurantScreen = ({navigation}) => {
                         favorites={favorites} 
                         onNavigate={navigation.navigate}/>}
                 
+                
                 <RestaurantList
                     data={restaurants}
                     renderItem={({item}) => {
@@ -66,13 +69,16 @@ export const RestaurantScreen = ({navigation}) => {
                                     navigation.navigate("RestaurantDetail",
                                          {restaurant: item,})}>
                                 <Spacer position="bottom" size="large">
-                                    <RestaurantInfoCard restaurant={item}/> 
+                                    <FadeInView>
+                                        <RestaurantInfoCard restaurant={item}/> 
+                                    </FadeInView>
                                 </Spacer>
                             </TouchableOpacity>
                         )}}
                     keyExtractor={(item) => item.name}
                     
                 />
+               
                     
             </SafeArea>
         </>
