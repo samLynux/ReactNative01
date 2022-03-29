@@ -28,18 +28,18 @@ if(!firebase.apps.length){
 }
 
 export default function App() {
-  const [isAuth, setIsAuth] = useState(false)
+  // const [isAuth, setIsAuth] = useState(false)
   
   // console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-  useEffect(() =>{ 
-    setTimeout(() => {
-    firebase.auth().signInWithEmailAndPassword("email@email.com", "test123")
-      .then((user) => {
-        setIsAuth(true)
-      }).catch((e) => {
-        console.log(e);
-      })}, 2000)
-  },[])
+  // useEffect(() =>{ 
+  //   setTimeout(() => {
+  //   firebase.auth().signInWithEmailAndPassword("email@email.com", "test123")
+  //     .then((user) => {
+  //       setIsAuth(true)
+  //     }).catch((e) => {
+  //       console.log(e);
+  //     })}, 2000)
+  // },[])
 
  
   const [oswaldLoaded] = useOswald({
