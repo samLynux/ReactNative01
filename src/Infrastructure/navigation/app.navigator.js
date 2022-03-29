@@ -15,6 +15,8 @@ import { FavoritesContextProvider } from "../../services/favorites/favorites.con
 import { LocationContextProvider } from "../../services/location/location.context";
 import { RestaurantContextProvider } from "../../services/restaurant/restaurant.context";
 import ExpoStatusBar from "expo-status-bar/build/ExpoStatusBar";
+import { SettingsScreen } from "../../features/settings/screens/settings.screen";
+import { SettingsNavigator } from "./settings.navigator";
 
 const TAB_ICONS = {
     Restaurant: "md-restaurant",
@@ -45,15 +47,7 @@ const TAB_ICONS = {
   }
 const Tab = createBottomTabNavigator();
 
-  const Settings = () => {
-    const {onLogout} = useContext(AuthenticationContext)
-    return (
-      <SafeArea>
-        <Text>Settings</Text>
-        <Button title="logout" onPress={(() => onLogout())}/>
-      </SafeArea>
-    )
-};
+ 
 
 
 
@@ -68,7 +62,7 @@ export const AppNavigator = () => {
               >
               <Tab.Screen name='Restaurant' component={RestaurantNavigator}/>
               <Tab.Screen name='Map' component={MapScreen}/>
-              <Tab.Screen name='Settings' component={Settings}/>
+              <Tab.Screen name='Settings' component={SettingsNavigator }/>
             </Tab.Navigator>
             </RestaurantContextProvider>
           </LocationContextProvider> 
