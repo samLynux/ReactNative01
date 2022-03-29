@@ -22,7 +22,6 @@ const TAB_ICONS = {
   const createScreenOptions = ({route}) => {
     const iconName = TAB_ICONS[route.name]
     return {
-        
             tabBarActiveTintColor: "tomato",
             tabBarInactiveTintColor: "gray",
             tabBarStyle: [
@@ -33,14 +32,11 @@ const TAB_ICONS = {
             ],
           
         headerShown: false,
-      tabBarIcon: ({size, color}) =>(
+        tabBarIcon: ({size, color}) =>(
         <Ionicons name={iconName} size={size} color={color} />
       )
     }
   }
- 
-
-
 const Tab = createBottomTabNavigator();
 
   const Settings = () => (
