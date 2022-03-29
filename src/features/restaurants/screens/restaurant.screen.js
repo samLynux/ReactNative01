@@ -10,17 +10,14 @@ import { FavoritesContext } from "../../../services/favorites/favorites.context"
 import { RestaurantContext } from "../../../services/restaurant/restaurant.context";
 import { SafeArea } from "../../../utils/safe-area.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+import { RestaurantList } from "../components/restaurant-list.styles";
 import { Search } from "../components/search.component";
 
 
 
 
 
-const RestaurantList = styled(FlatList).attrs({
-    contentContainerStyle:{
-        padding:16
-    }
-})``;
+
 
 const Loading = styled(ActivityIndicator)`
     marginLeft: -25px;

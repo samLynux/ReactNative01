@@ -32,7 +32,7 @@ const AvatarContainer = styled.View`
                 left={(props) => (
                     <List.Icon {...props}
                         color="black" icon="heart"/>)}
-                    onPress={() => navigation.navigate("Favorites")}
+                    onPress={() => navigation.navigate("Favourites")}
                 
               />
               <SettingItem
