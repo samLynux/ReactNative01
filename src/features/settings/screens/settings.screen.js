@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import React, {useState, useContext} from "react";
-import { Button } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 import { SafeArea } from "../../../utils/safe-area.component";
 import { Avatar, List } from "react-native-paper";
@@ -19,7 +19,9 @@ const AvatarContainer = styled.View`
     return (
       <SafeArea>
           <AvatarContainer>
-            <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD"/>
+            <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
+              <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD"/>
+            </TouchableOpacity>
             <Spacer position="top" size="large">
               <Text variants="label">{user.email}</Text>
             </Spacer>
