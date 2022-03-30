@@ -17,7 +17,7 @@ export const SettingsNavigator = ({route, navigation}) => {
                 options={{
                     header: () => null
                 }}
-                name="Settings"
+                name="Setting"
                 component={SettingsScreen}
 
             />
